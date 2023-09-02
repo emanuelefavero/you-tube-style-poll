@@ -43,18 +43,17 @@ export default function Poll() {
         {/* ANSWERS */}
         {answers.map((answer, index) => {
           const percentage = Math.round((answer.votes / totalVotes) * 100)
-          const answerClasses = `flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
-            selectedAnswer === index
-              ? index === correctAnswer
-                ? 'text-green-400 border-green-500'
-                : 'text-red-400 border-red-500'
-              : 'text-neutral-400 border-neutral-500'
-          }`
 
           return (
             <li key={index}>
               <button
-                className={answerClasses}
+                className={`flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
+                  selectedAnswer === index
+                    ? index === correctAnswer
+                      ? 'text-green-500 border-green-500'
+                      : 'text-red-500 border-red-500'
+                    : 'text-neutral-400 border-neutral-500'
+                }`}
                 onClick={() => handleAnswerClick(index)}
               >
                 <p>{answer.text}</p>
@@ -66,7 +65,11 @@ export default function Poll() {
       </ul>
       <p className='text-neutral-400 my-2'>{totalVotes} answered</p>
       {showCorrectAnswer && (
-        <p className='bg-neutral-800 bg-opacity-50 rounded-sm py-1 px-2'>
+        <p
+          className={`${
+            selectedAnswer === correctAnswer ? 'bg-green-700' : 'bg-red-700'
+          } bg-opacity-20 rounded-sm py-1 px-2`}
+        >
           {correctAnswerExplanation}
         </p>
       )}
