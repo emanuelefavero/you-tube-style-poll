@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ConfettiExplosion from 'react-confetti-explosion'
 
 export default function Poll() {
   const question = 'What is the capital city of France?'
@@ -24,6 +25,7 @@ export default function Poll() {
 
   const [selectedAnswer, setSelectedAnswer] = useState(-1)
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false)
+  const [showConfetti, setShowConfetti] = useState(false)
 
   const handleAnswerClick = (index: number) => {
     // If the answer clicked is equal to the already selected answer, deselect it and hide the correct answer explanation
@@ -33,6 +35,7 @@ export default function Poll() {
     } else {
       setSelectedAnswer(index)
       setShowCorrectAnswer(true)
+      setShowConfetti(true)
     }
   }
 
@@ -47,7 +50,7 @@ export default function Poll() {
           return (
             <li key={index}>
               <button
-                className={`flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
+                className={`overflow-hidden flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
                   // If the answer is selected, check if it's the correct answer and apply the correct color
                   selectedAnswer === index
                     ? index === correctAnswer
@@ -58,7 +61,22 @@ export default function Poll() {
                 onClick={() => handleAnswerClick(index)}
               >
                 <p>{answer.text}</p>
-                {showCorrectAnswer && <span>{percentage}%</span>}
+                <div>
+                  <div className='mr-5'>
+                    {
+                      // If the answer is selected and it's the correct answer, show the confetti
+                      selectedAnswer === index && index === correctAnswer && (
+                        <ConfettiExplosion
+                          width={150}
+                          particleCount={5}
+                          force={0.1}
+                          duration={2000}
+                        />
+                      )
+                    }
+                  </div>
+                  {showCorrectAnswer && <span>{percentage}%</span>}
+                </div>
               </button>
             </li>
           )
