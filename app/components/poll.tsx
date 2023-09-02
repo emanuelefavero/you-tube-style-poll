@@ -48,6 +48,7 @@ export default function Poll() {
             <li key={index}>
               <button
                 className={`flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
+                  // If the answer is selected, check if it's the correct answer and apply the correct color
                   selectedAnswer === index
                     ? index === correctAnswer
                       ? 'text-green-500 border-green-500'
