@@ -43,11 +43,18 @@ export default function Poll() {
         {/* ANSWERS */}
         {answers.map((answer, index) => {
           const percentage = Math.round((answer.votes / totalVotes) * 100)
+          const answerClasses = `flex justify-between w-full border rounded-sm py-1 px-2 my-2 ${
+            selectedAnswer === index
+              ? index === correctAnswer
+                ? 'text-green-400 border-green-500'
+                : 'text-red-400 border-red-500'
+              : 'text-neutral-400 border-neutral-500'
+          }`
 
           return (
             <li key={index}>
               <button
-                className='flex justify-between w-full text-neutral-400 border border-neutral-500 rounded-sm hover:text-neutral-300 hover:border-neutral-400 py-1 px-2 my-2'
+                className={answerClasses}
                 onClick={() => handleAnswerClick(index)}
               >
                 <p>{answer.text}</p>
