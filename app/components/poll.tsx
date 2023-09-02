@@ -37,23 +37,32 @@ export default function Poll() {
   }
 
   return (
-    <section>
+    <section className='w-72 h-56 select-none'>
       <h1>{question}</h1>
       <ul>
+        {/* ANSWERS */}
         {answers.map((answer, index) => {
           const percentage = Math.round((answer.votes / totalVotes) * 100)
+
           return (
             <li key={index}>
-              <button onClick={() => handleAnswerClick(index)}>
+              <button
+                className='flex justify-between w-full text-neutral-400 border border-neutral-500 rounded-sm hover:text-neutral-300 hover:border-neutral-400 py-1 px-2 my-2'
+                onClick={() => handleAnswerClick(index)}
+              >
                 <p>{answer.text}</p>
-                <span>{percentage}%</span>
+                {showCorrectAnswer && <span>{percentage}%</span>}
               </button>
             </li>
           )
         })}
       </ul>
-      <p>{totalVotes}</p> answered
-      {showCorrectAnswer && <p>{correctAnswerExplanation}</p>}
+      <p className='text-neutral-400 my-2'>{totalVotes} answered</p>
+      {showCorrectAnswer && (
+        <p className='bg-neutral-800 bg-opacity-50 rounded-sm py-1 px-2'>
+          {correctAnswerExplanation}
+        </p>
+      )}
     </section>
   )
 }
