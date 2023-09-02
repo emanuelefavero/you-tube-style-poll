@@ -86,8 +86,10 @@ export default function Poll() {
       {showCorrectAnswer && (
         <p
           className={`${
-            selectedAnswer === correctAnswer ? 'bg-green-700' : 'bg-red-700'
-          } bg-opacity-20 rounded-sm py-1 px-2`}
+            selectedAnswer === correctAnswer
+              ? 'bg-custom-green-explanation'
+              : 'bg-custom-red-explanation'
+          } rounded-sm py-1 px-2`}
         >
           {correctAnswerExplanation}
         </p>
