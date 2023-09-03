@@ -8,6 +8,10 @@ This is a simple poll app similar to You Tube polls that allows users to vote on
 
 - [https://you-tube-style-poll.vercel.app](https://you-tube-style-poll.vercel.app)
 
+#### Screenshot
+
+![screenshot](./screenshot.png 'screenshot')
+
 ## Getting Started
 
 First, run the development server:
