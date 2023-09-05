@@ -76,7 +76,7 @@ export default function Poll() {
       <p
         className={`${
           showCorrectAnswer
-            ? `${styles.explanationTransition} h-20 py-2 opacity-100`
+            ? `${styles.explanationTransition} h-10 py-2 opacity-100`
             : 'h-0 py-0 opacity-0'
         } ${
           selectedAnswer === correctAnswer
