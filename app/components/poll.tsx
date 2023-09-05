@@ -72,7 +72,6 @@ export default function Poll() {
           )
         })}
       </ul>
-      <p className='text-neutral-400 my-2'>{totalVotes} answered</p>
       {showCorrectAnswer && (
         <p
           className={`${
@@ -84,6 +83,7 @@ export default function Poll() {
           {correctAnswerExplanation}
         </p>
       )}
+      <p className='text-neutral-400 my-2'>{totalVotes} answered</p>
     </section>
   )
 }
