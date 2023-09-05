@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import styles from './poll.module.scss'
 import jsonData from '@/json/data.json'
 import ConfettiExplosion from 'react-confetti-explosion'
 
@@ -72,17 +73,20 @@ export default function Poll() {
           )
         })}
       </ul>
-      {showCorrectAnswer && (
-        <p
-          className={`${
-            selectedAnswer === correctAnswer
-              ? 'bg-custom-green-explanation'
-              : 'bg-custom-red-explanation'
-          } rounded-sm py-1 px-2`}
-        >
-          {correctAnswerExplanation}
-        </p>
-      )}
+      <p
+        className={`${
+          showCorrectAnswer
+            ? `${styles.explanationTransition} h-20 py-2 opacity-100`
+            : 'h-0 py-0 opacity-0'
+        } ${
+          selectedAnswer === correctAnswer
+            ? 'bg-custom-green-explanation'
+            : 'bg-custom-red-explanation'
+        } rounded-sm px-2`}
+      >
+        {correctAnswerExplanation}
+      </p>
+
       <p className='text-neutral-400 my-2'>{totalVotes} answered</p>
     </section>
   )
