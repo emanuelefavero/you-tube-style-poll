@@ -5,11 +5,13 @@ import jsonData from '@/json/data.json'
 import ConfettiExplosion from 'react-confetti-explosion'
 
 export default function Poll() {
-  const question = jsonData.question
-  const answers = jsonData.answers
-  const totalVotes = jsonData.totalVotes
-  const correctAnswer = jsonData.correctAnswer
-  const correctAnswerExplanation = jsonData.correctAnswerExplanation
+  const {
+    question,
+    answers,
+    totalVotes,
+    correctAnswer,
+    correctAnswerExplanation,
+  } = jsonData
 
   const [selectedAnswer, setSelectedAnswer] = useState(-1)
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false)
