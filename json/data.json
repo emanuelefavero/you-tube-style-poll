@@ -1,0 +1,20 @@
+{
+  "question": "What is the capital city of France?",
+  "answers": [
+    {
+      "text": "London",
+      "votes": 100
+    },
+    {
+      "text": "Paris",
+      "votes": 200
+    },
+    {
+      "text": "Berlin",
+      "votes": 66
+    }
+  ],
+  "totalVotes": 366,
+  "correctAnswer": 1,
+  "correctAnswerExplanation": "Paris is the capital city of France."
+}

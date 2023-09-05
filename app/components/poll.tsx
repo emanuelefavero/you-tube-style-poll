@@ -1,27 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import jsonData from '@/json/data.json'
 import ConfettiExplosion from 'react-confetti-explosion'
 
 export default function Poll() {
-  const question = 'What is the capital city of France?'
-  const answers = [
-    {
-      text: 'London',
-      votes: 100,
-    },
-    {
-      text: 'Paris',
-      votes: 200,
-    },
-    {
-      text: 'Berlin',
-      votes: 66,
-    },
-  ]
-  const totalVotes = 366
-  const correctAnswer = 1
-  const correctAnswerExplanation = 'Paris is the capital city of France.'
+  const question = jsonData.question
+  const answers = jsonData.answers
+  const totalVotes = jsonData.totalVotes
+  const correctAnswer = jsonData.correctAnswer
+  const correctAnswerExplanation = jsonData.correctAnswerExplanation
 
   const [selectedAnswer, setSelectedAnswer] = useState(-1)
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false)
